@@ -1,24 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace FORMS.EntityRepository
 {
-    public class InventoryRepository : IRepository<Inventory>
+    public class MakesRepository : IRepository<Makes>
     {
         private readonly string _connectionString;
 
-        public InventoryRepository(string connectionString)
+        public MakesRepository(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        public void Add(Inventory entity)
+        public void Add(Makes entity)
         {
-            string queryString = "INSERT INTO Inventory (MakeId, Color, PetName) VALUES (@makeId, @color, @petName)";
+            string queryString = "INSERT INTO Makes(Name) VALUES (@name)";
 
             try
             {
@@ -26,9 +28,7 @@ namespace FORMS.EntityRepository
                 {
                     connection.Open();
                     SqlCommand command = new SqlCommand(queryString, connection);
-                    command.Parameters.AddWithValue("@makeId", entity.MakeId);
-                    command.Parameters.AddWithValue("@color", entity.Color);
-                    command.Parameters.AddWithValue("@petName", entity.PetName);
+                    command.Parameters.AddWithValue("@name", entity.Name);
                     command.ExecuteNonQuery();
                 }
             }
@@ -40,7 +40,7 @@ namespace FORMS.EntityRepository
 
         public void Delete(int id)
         {
-            string queryString = "DELETE FROM Inventory WHERE Id = @id";
+            string queryString = "DELETE FROM Makes WHERE Id = @id";
             try
             {
                 using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -57,10 +57,10 @@ namespace FORMS.EntityRepository
             }
         }
 
-        public IEnumerable<Inventory> GetAll()
+        public IEnumerable<Makes> GetAll()
         {
-            List<Inventory> inventories = new List<Inventory>();
-            string queryString = "SELECT Id, MakeId, Color, PetName, TimeStamp FROM Inventory";
+            List<Makes> makes = new List<Makes>();
+            string queryString = "SELECT Id, Name, TimeStamp FROM Makes";
 
             try
             {
@@ -72,12 +72,10 @@ namespace FORMS.EntityRepository
                     {
                         while (reader.Read())
                         {
-                            inventories.Add(new Inventory()
+                            makes.Add(new Makes()
                             {
                                 Id = reader.GetInt32(0),
-                                MakeId = reader.GetInt32(1),
-                                Color = reader.GetString(2),
-                                PetName = reader.GetString(3),
+                                Name = reader.GetString(1),
                                 TimeStamp = (byte[])reader["TimeStamp"]
                             });
                         }
@@ -89,12 +87,12 @@ namespace FORMS.EntityRepository
                 throw new Exception($"Error al obtener registros de la base de datos: {ex.Message}");
             }
 
-            return inventories;
+            return makes;
         }
 
-        public Inventory GetById(int id)
+        public Makes GetById(int id)
         {
-            string queryString = "SELECT Id, MakeId, Color, PetName, TimeStamp FROM Inventory WHERE Id = @id";
+            string queryString = "SELECT Id, Name, TimeStamp FROM Makes WHERE Id = @id";
 
             try
             {
@@ -106,15 +104,13 @@ namespace FORMS.EntityRepository
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
-                        Inventory inventory = new Inventory
+                        Makes make = new Makes
                         {
                             Id = reader.GetInt32(0),
-                            MakeId = reader.GetInt32(1),
-                            Color = reader.GetString(2),
-                            PetName = reader.GetString(3),
+                            Name = reader.GetString(1),
                             TimeStamp = (byte[])reader["TimeStamp"]
                         };
-                        return inventory;
+                        return make;
                     }
                 }
             }
@@ -125,9 +121,9 @@ namespace FORMS.EntityRepository
             return null;
         }
 
-        public void Update(Inventory entity)
+        public void Update(Makes entity)
         {
-            string queryString = "UPDATE Inventory SET MakeId = @makeId, Color = @color, PetName = @petName WHERE Id = @id AND TimeStamp = @timestamp";
+            string queryString = "UPDATE Makes SET Name = @name WHERE Id = @id AND TimeStamp = @timestamp";
 
             try
             {
@@ -135,9 +131,7 @@ namespace FORMS.EntityRepository
                 {
                     connection.Open();
                     SqlCommand command = new SqlCommand(queryString, connection);
-                    command.Parameters.AddWithValue("@makeId", entity.MakeId);
-                    command.Parameters.AddWithValue("@color", entity.Color);
-                    command.Parameters.AddWithValue("@petName", entity.PetName);
+                    command.Parameters.AddWithValue("@name", entity.Name);
                     command.Parameters.AddWithValue("@id", entity.Id);
                     command.Parameters.AddWithValue("@timestamp", entity.TimeStamp);
 

@@ -1,12 +1,12 @@
 ﻿namespace FORMS
 {
-    public interface IRepository<TEntity>
+    public interface IRepository<T> 
     {
-        List<TEntity> GetAll(TEntity entity);
-        TEntity GetById(int id);
-        void Add(TEntity entity);
-        void Update(TEntity entity);
-        void Delete(TEntity entity);
+        IEnumerable<T> GetAll();
+        T GetById(int id);
+        void Add(T entity);
+        void Update(T  entity);
+        void Delete(int id);
 
 
 

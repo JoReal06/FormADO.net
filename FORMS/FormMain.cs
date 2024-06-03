@@ -16,5 +16,19 @@ namespace FORMS
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormAdo_net ado = new FormAdo_net();
+            ado.ShowDialog();
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormEntityFram entity = new FormEntityFram();
+            entity.ShowDialog();
+        }
     }
 }

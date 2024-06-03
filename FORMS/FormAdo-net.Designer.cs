@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dgv_makes = new DataGridView();
             btn_add_invetory = new Button();
             btn_update_inventory = new Button();
-            dataGridView2 = new DataGridView();
+            dgv_Inventory = new DataGridView();
             btn_delete_inventory = new Button();
-            btn_refresh_dgvInventory = new Button();
-            btn_refresh_gtvMakes = new Button();
             btn_delete_makes = new Button();
             btn_update_makes = new Button();
             btn_add_makes = new Button();
@@ -50,19 +48,20 @@
             cmb_makess = new ComboBox();
             label2 = new Label();
             txt_name_inventory = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_makes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_Inventory).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgv_makes
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 197);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(521, 364);
-            dataGridView1.TabIndex = 0;
+            dgv_makes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_makes.Location = new Point(12, 197);
+            dgv_makes.Name = "dgv_makes";
+            dgv_makes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_makes.Size = new Size(521, 364);
+            dgv_makes.TabIndex = 0;
             // 
             // btn_add_invetory
             // 
@@ -73,6 +72,7 @@
             btn_add_invetory.TabIndex = 1;
             btn_add_invetory.Text = "ADD";
             btn_add_invetory.UseVisualStyleBackColor = true;
+            btn_add_invetory.Click += btn_add_invetory_Click;
             // 
             // btn_update_inventory
             // 
@@ -83,15 +83,17 @@
             btn_update_inventory.TabIndex = 2;
             btn_update_inventory.Text = "UPDATE";
             btn_update_inventory.UseVisualStyleBackColor = true;
+            btn_update_inventory.Click += btn_update_inventory_Click;
             // 
-            // dataGridView2
+            // dgv_Inventory
             // 
-            dataGridView2.Anchor = AnchorStyles.Left;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(554, 215);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(606, 348);
-            dataGridView2.TabIndex = 3;
+            dgv_Inventory.Anchor = AnchorStyles.Left;
+            dgv_Inventory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_Inventory.Location = new Point(554, 215);
+            dgv_Inventory.Name = "dgv_Inventory";
+            dgv_Inventory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_Inventory.Size = new Size(606, 348);
+            dgv_Inventory.TabIndex = 3;
             // 
             // btn_delete_inventory
             // 
@@ -102,26 +104,7 @@
             btn_delete_inventory.TabIndex = 4;
             btn_delete_inventory.Text = "DELETE";
             btn_delete_inventory.UseVisualStyleBackColor = true;
-            // 
-            // btn_refresh_dgvInventory
-            // 
-            btn_refresh_dgvInventory.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btn_refresh_dgvInventory.Location = new Point(405, 129);
-            btn_refresh_dgvInventory.Name = "btn_refresh_dgvInventory";
-            btn_refresh_dgvInventory.Size = new Size(126, 26);
-            btn_refresh_dgvInventory.TabIndex = 5;
-            btn_refresh_dgvInventory.Text = "REFRESH DATA";
-            btn_refresh_dgvInventory.UseVisualStyleBackColor = true;
-            // 
-            // btn_refresh_gtvMakes
-            // 
-            btn_refresh_gtvMakes.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_refresh_gtvMakes.Location = new Point(374, 86);
-            btn_refresh_gtvMakes.Name = "btn_refresh_gtvMakes";
-            btn_refresh_gtvMakes.Size = new Size(117, 26);
-            btn_refresh_gtvMakes.TabIndex = 9;
-            btn_refresh_gtvMakes.Text = "REFRESH DATA";
-            btn_refresh_gtvMakes.UseVisualStyleBackColor = true;
+            btn_delete_inventory.Click += btn_delete_inventory_Click;
             // 
             // btn_delete_makes
             // 
@@ -132,6 +115,7 @@
             btn_delete_makes.TabIndex = 8;
             btn_delete_makes.Text = "DELETE";
             btn_delete_makes.UseVisualStyleBackColor = true;
+            btn_delete_makes.Click += btn_delete_makes_Click;
             // 
             // btn_update_makes
             // 
@@ -142,6 +126,7 @@
             btn_update_makes.TabIndex = 7;
             btn_update_makes.Text = "UPDATE";
             btn_update_makes.UseVisualStyleBackColor = true;
+            btn_update_makes.Click += btn_update_makes_Click;
             // 
             // btn_add_makes
             // 
@@ -152,6 +137,7 @@
             btn_add_makes.TabIndex = 6;
             btn_add_makes.Text = "ADD";
             btn_add_makes.UseVisualStyleBackColor = true;
+            btn_add_makes.Click += btn_add_makes_Click;
             // 
             // groupBox1
             // 
@@ -159,7 +145,6 @@
             groupBox1.Controls.Add(txt_name_makes);
             groupBox1.Controls.Add(btn_delete_makes);
             groupBox1.Controls.Add(btn_add_makes);
-            groupBox1.Controls.Add(btn_refresh_gtvMakes);
             groupBox1.Controls.Add(btn_update_makes);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
@@ -194,7 +179,6 @@
             groupBox2.Controls.Add(txt_color);
             groupBox2.Controls.Add(cmb_makess);
             groupBox2.Controls.Add(label2);
-            groupBox2.Controls.Add(btn_refresh_dgvInventory);
             groupBox2.Controls.Add(txt_name_inventory);
             groupBox2.Controls.Add(btn_add_invetory);
             groupBox2.Controls.Add(btn_update_inventory);
@@ -283,12 +267,12 @@
             ClientSize = new Size(1172, 573);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Controls.Add(dataGridView2);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgv_Inventory);
+            Controls.Add(dgv_makes);
             Name = "FormAdo_net";
             Text = "FormAdo_net";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_makes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_Inventory).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -298,13 +282,11 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgv_makes;
         private Button btn_add_invetory;
         private Button btn_update_inventory;
-        private DataGridView dataGridView2;
+        private DataGridView dgv_Inventory;
         private Button btn_delete_inventory;
-        private Button btn_refresh_dgvInventory;
-        private Button btn_refresh_gtvMakes;
         private Button btn_delete_makes;
         private Button btn_update_makes;
         private Button btn_add_makes;
