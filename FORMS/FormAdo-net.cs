@@ -157,15 +157,7 @@ namespace FORMS
 
         private void btn_update_inventory_Click(object sender, EventArgs e)
         {
-            if ()
-
-
-                switch ()
-                {
-                    case 1:
-
-                }
-
+         
 
         }
 
