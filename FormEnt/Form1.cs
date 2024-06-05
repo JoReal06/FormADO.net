@@ -173,6 +173,7 @@ namespace FormEnt
                     {
                         _custumerRep.Delete(selectedCustomer.Id);
                         RefreshData();
+                        LoadCustomers();
                     }
                 }
             }
