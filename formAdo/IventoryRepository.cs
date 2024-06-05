@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using FORMS;
 
-namespace FORMS.EntityRepository
+namespace formAdo
 {
     public class InventoryRepository : IRepository<Inventory>
     {
@@ -70,7 +71,7 @@ namespace FORMS.EntityRepository
                         while (reader.Read())
                         {
 
-                            
+
                             Inventory inventory = new Inventory
                             {
                                 Id = reader.GetInt32(0),
@@ -108,8 +109,8 @@ namespace FORMS.EntityRepository
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
-                     
-                       
+
+
 
                         Inventory inventory = new Inventory
                         {

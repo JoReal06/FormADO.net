@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FORMS
+namespace formAdo
 {
     public class Makes
     {
-        public int Id { set; get; }
-        public string Name { set; get; }
-        public byte[] TimeStamp { set; get; }
-
+        
     }
 }

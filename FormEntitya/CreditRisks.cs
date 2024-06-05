@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace FORMS
 {
-    public class Makes
+    public class CreditRisks
     {
-        public int Id { set; get; }
-        public string Name { set; get; }
-        public byte[] TimeStamp { set; get; }
-
+      
     }
 }

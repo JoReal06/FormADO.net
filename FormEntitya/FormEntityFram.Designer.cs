@@ -111,6 +111,7 @@
             // 
             // btn_delete_customers
             // 
+            btn_delete_customers.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_delete_customers.Location = new Point(312, 82);
             btn_delete_customers.Name = "btn_delete_customers";
             btn_delete_customers.Size = new Size(117, 26);
@@ -121,6 +122,7 @@
             // 
             // btn_add_customers
             // 
+            btn_add_customers.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_add_customers.Location = new Point(260, 40);
             btn_add_customers.Name = "btn_add_customers";
             btn_add_customers.Size = new Size(101, 26);
@@ -131,6 +133,7 @@
             // 
             // btn_update_customers
             // 
+            btn_update_customers.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_update_customers.Location = new Point(367, 40);
             btn_update_customers.Name = "btn_update_customers";
             btn_update_customers.Size = new Size(117, 26);
@@ -198,6 +201,7 @@
             // 
             // btn_delete_credit
             // 
+            btn_delete_credit.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_delete_credit.Location = new Point(324, 91);
             btn_delete_credit.Name = "btn_delete_credit";
             btn_delete_credit.Size = new Size(117, 26);
@@ -218,6 +222,7 @@
             // 
             // btn_add_credit
             // 
+            btn_add_credit.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_add_credit.Location = new Point(272, 49);
             btn_add_credit.Name = "btn_add_credit";
             btn_add_credit.Size = new Size(101, 26);
@@ -238,6 +243,7 @@
             // 
             // btn_update_credit
             // 
+            btn_update_credit.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_update_credit.Location = new Point(379, 49);
             btn_update_credit.Name = "btn_update_credit";
             btn_update_credit.Size = new Size(117, 26);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FORMS
 {
-    public  class Costumer
+    public  class Customer
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

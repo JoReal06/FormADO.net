@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
@@ -72,12 +74,24 @@ namespace FORMS.EntityRepository
                     {
                         while (reader.Read())
                         {
-                            makes.Add(new Makes()
+                            try
                             {
-                                Id = reader.GetInt32(0),
-                                Name = reader.GetString(1),
-                                TimeStamp = (byte[])reader["TimeStamp"]
-                            });
+                                
+
+                                makes.Add(new Makes()
+                                {
+                                    Id = reader.GetInt32(0),
+                                    Name = reader.GetString(1),
+                                    TimeStamp = (byte[])reader["TimeStamp"]
+
+
+                            }); 
+                            }
+                            catch (Exception ex)
+                            {
+                               
+                                throw new Exception($"Error al leer los datos del lector: {ex.Message}");
+                            }
                         }
                     }
                 }
@@ -89,7 +103,6 @@ namespace FORMS.EntityRepository
 
             return makes;
         }
-
         public Makes GetById(int id)
         {
             string queryString = "SELECT Id, Name, TimeStamp FROM Makes WHERE Id = @id";
@@ -104,11 +117,15 @@ namespace FORMS.EntityRepository
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
+                        byte[] aux = (byte[])reader["TimeStamp"];
+
+
                         Makes make = new Makes
                         {
                             Id = reader.GetInt32(0),
                             Name = reader.GetString(1),
                             TimeStamp = (byte[])reader["TimeStamp"]
+
                         };
                         return make;
                     }

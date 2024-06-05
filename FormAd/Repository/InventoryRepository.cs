@@ -1,8 +1,12 @@
-﻿using System;
+﻿using FormAd.models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace FORMS.EntityRepository
+namespace FormAd.Repository
 {
     public class InventoryRepository : IRepository<Inventory>
     {
@@ -70,7 +74,7 @@ namespace FORMS.EntityRepository
                         while (reader.Read())
                         {
 
-                            
+
                             Inventory inventory = new Inventory
                             {
                                 Id = reader.GetInt32(0),
@@ -108,8 +112,8 @@ namespace FORMS.EntityRepository
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
-                     
-                       
+
+
 
                         Inventory inventory = new Inventory
                         {

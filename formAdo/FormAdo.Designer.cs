@@ -46,8 +46,6 @@
             label3 = new Label();
             txt_color = new TextBox();
             cmb_makess = new ComboBox();
-            label2 = new Label();
-            txt_name_inventory = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgv_makes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgv_Inventory).BeginInit();
             groupBox1.SuspendLayout();
@@ -65,10 +63,9 @@
             // 
             // btn_add_invetory
             // 
-            btn_add_invetory.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btn_add_invetory.Location = new Point(6, 129);
             btn_add_invetory.Name = "btn_add_invetory";
-            btn_add_invetory.Size = new Size(110, 26);
+            btn_add_invetory.Size = new Size(91, 26);
             btn_add_invetory.TabIndex = 1;
             btn_add_invetory.Text = "ADD";
             btn_add_invetory.UseVisualStyleBackColor = true;
@@ -76,10 +73,9 @@
             // 
             // btn_update_inventory
             // 
-            btn_update_inventory.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btn_update_inventory.Location = new Point(135, 129);
             btn_update_inventory.Name = "btn_update_inventory";
-            btn_update_inventory.Size = new Size(126, 26);
+            btn_update_inventory.Size = new Size(107, 26);
             btn_update_inventory.TabIndex = 2;
             btn_update_inventory.Text = "UPDATE";
             btn_update_inventory.UseVisualStyleBackColor = true;
@@ -97,10 +93,9 @@
             // 
             // btn_delete_inventory
             // 
-            btn_delete_inventory.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btn_delete_inventory.Location = new Point(273, 129);
             btn_delete_inventory.Name = "btn_delete_inventory";
-            btn_delete_inventory.Size = new Size(126, 26);
+            btn_delete_inventory.Size = new Size(107, 26);
             btn_delete_inventory.TabIndex = 4;
             btn_delete_inventory.Text = "DELETE";
             btn_delete_inventory.UseVisualStyleBackColor = true;
@@ -108,7 +103,6 @@
             // 
             // btn_delete_makes
             // 
-            btn_delete_makes.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_delete_makes.Location = new Point(251, 86);
             btn_delete_makes.Name = "btn_delete_makes";
             btn_delete_makes.Size = new Size(117, 26);
@@ -119,7 +113,6 @@
             // 
             // btn_update_makes
             // 
-            btn_update_makes.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_update_makes.Location = new Point(118, 86);
             btn_update_makes.Name = "btn_update_makes";
             btn_update_makes.Size = new Size(117, 26);
@@ -130,7 +123,6 @@
             // 
             // btn_add_makes
             // 
-            btn_add_makes.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_add_makes.Location = new Point(11, 86);
             btn_add_makes.Name = "btn_add_makes";
             btn_add_makes.Size = new Size(101, 26);
@@ -178,14 +170,12 @@
             groupBox2.Controls.Add(label3);
             groupBox2.Controls.Add(txt_color);
             groupBox2.Controls.Add(cmb_makess);
-            groupBox2.Controls.Add(label2);
-            groupBox2.Controls.Add(txt_name_inventory);
             groupBox2.Controls.Add(btn_add_invetory);
             groupBox2.Controls.Add(btn_update_inventory);
             groupBox2.Controls.Add(btn_delete_inventory);
             groupBox2.Location = new Point(555, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(606, 187);
+            groupBox2.Size = new Size(587, 187);
             groupBox2.TabIndex = 11;
             groupBox2.TabStop = false;
             groupBox2.Text = "Inventory";
@@ -204,7 +194,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(223, 40);
+            label4.Location = new Point(18, 46);
             label4.Name = "label4";
             label4.Size = new Size(80, 21);
             label4.TabIndex = 18;
@@ -212,7 +202,7 @@
             // 
             // txt_petName
             // 
-            txt_petName.Location = new Point(309, 38);
+            txt_petName.Location = new Point(104, 44);
             txt_petName.Name = "txt_petName";
             txt_petName.Size = new Size(137, 23);
             txt_petName.TabIndex = 17;
@@ -238,27 +228,10 @@
             // 
             cmb_makess.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_makess.FormattingEnabled = true;
-            cmb_makess.Location = new Point(287, 89);
+            cmb_makess.Location = new Point(287, 86);
             cmb_makess.Name = "cmb_makess";
             cmb_makess.Size = new Size(177, 23);
             cmb_makess.TabIndex = 14;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(15, 40);
-            label2.Name = "label2";
-            label2.Size = new Size(55, 21);
-            label2.TabIndex = 13;
-            label2.Text = "Name:";
-            // 
-            // txt_name_inventory
-            // 
-            txt_name_inventory.Location = new Point(73, 42);
-            txt_name_inventory.Name = "txt_name_inventory";
-            txt_name_inventory.Size = new Size(137, 23);
-            txt_name_inventory.TabIndex = 12;
             // 
             // FormAdo_net
             // 
@@ -300,7 +273,5 @@
         private Label label3;
         private TextBox txt_color;
         private ComboBox cmb_makess;
-        private Label label2;
-        private TextBox txt_name_inventory;
     }
 }
